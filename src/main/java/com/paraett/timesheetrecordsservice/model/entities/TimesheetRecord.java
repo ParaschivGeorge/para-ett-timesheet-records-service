@@ -14,6 +14,12 @@ public class TimesheetRecord {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name="company_id")
+    private Long companyId;
+
+    @Column(name="project_id")
+    private Long projectId;
+
     @Column
     private Date date;
 
@@ -24,5 +30,61 @@ public class TimesheetRecord {
     private Boolean overtime;
 
     public TimesheetRecord() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Integer getNoHours() {
+        return noHours;
+    }
+
+    public void setNoHours(Integer noHours) {
+        this.noHours = noHours;
+    }
+
+    public Boolean getOvertime() {
+        return overtime;
+    }
+
+    public void setOvertime(Boolean overtime) {
+        this.overtime = overtime;
     }
 }
