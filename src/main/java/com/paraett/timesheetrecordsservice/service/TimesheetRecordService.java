@@ -51,4 +51,13 @@ public class TimesheetRecordService {
         }
         throw new NotFoundException("id: " + id);
     }
+
+    public void deleteTimesheetRecords(Long companyId, Long userId) {
+        if (companyId != null) {
+            timesheetRecordRepository.deleteAllByCompanyId(companyId);
+        }
+        if (userId != null) {
+            timesheetRecordRepository.deleteAllByUserId(userId);
+        }
+    }
 }

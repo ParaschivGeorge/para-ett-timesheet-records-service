@@ -57,4 +57,10 @@ public class TimesheetRecordController {
 
         return ResponseEntity.accepted().body(updatedTimesheetRecord);
     }
+
+    @DeleteMapping("")
+    public ResponseEntity<Object> deleteTimesheetRecords(@PathVariable Long companyId, @PathVariable Long userId) {
+        timesheetRecordService.deleteTimesheetRecords(companyId, userId);
+        return ResponseEntity.noContent().build();
+    }
 }
