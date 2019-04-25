@@ -15,6 +15,10 @@ public class TimesheetRecordService {
 
     private TimesheetRecordRepository timesheetRecordRepository;
 
+    public TimesheetRecordService(TimesheetRecordRepository timesheetRecordRepository) {
+        this.timesheetRecordRepository = timesheetRecordRepository;
+    }
+
     public List<TimesheetRecord> getAllTimesheetRecords(Long companyId, Long projectId, Long userId, Date minDate, Date maxDate) {
         return timesheetRecordRepository.findAll(TimesheetRecordSpecifications.findAllFiltered(companyId, projectId, userId, minDate, maxDate));
     }
