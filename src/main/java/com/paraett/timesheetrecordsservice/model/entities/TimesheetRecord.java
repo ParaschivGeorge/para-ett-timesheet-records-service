@@ -14,6 +14,9 @@ public class TimesheetRecord {
     @Column(name = "user_id")
     private Long userId;
 
+    @Column(name = "manager_id")
+    private Long managerId;
+
     @Column(name="company_id")
     private Long companyId;
 
@@ -86,5 +89,13 @@ public class TimesheetRecord {
 
     public void setOvertime(Boolean overtime) {
         this.overtime = overtime;
+    }
+
+    public Long getManagerId() {
+        return managerId;
+    }
+
+    public void setManagerId(Long managerId) {
+        this.managerId = managerId;
     }
 }
