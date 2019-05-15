@@ -35,8 +35,9 @@ public class TimesheetRecordService {
         Optional<TimesheetRecord> optionalTimesheetRecord = timesheetRecordRepository.findById(id);
         if (optionalTimesheetRecord.isPresent()) {
             timesheetRecordRepository.deleteById(id);
+        } else {
+            throw new NotFoundException("id: " + id);
         }
-        throw new NotFoundException("id: " + id);
     }
 
     public List<TimesheetRecord> createTimesheetRecords(List<TimesheetRecord> timesheetRecords) {
@@ -47,7 +48,7 @@ public class TimesheetRecordService {
         Optional<TimesheetRecord> optionalTimesheetRecord = timesheetRecordRepository.findById(id);
         if (optionalTimesheetRecord.isPresent()) {
             timesheetRecord.setId(id);
-            timesheetRecordRepository.save(timesheetRecord);
+            return timesheetRecordRepository.save(timesheetRecord);
         }
         throw new NotFoundException("id: " + id);
     }
