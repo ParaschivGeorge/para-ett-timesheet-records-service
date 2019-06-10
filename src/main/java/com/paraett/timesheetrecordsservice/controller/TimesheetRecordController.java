@@ -2,6 +2,7 @@ package com.paraett.timesheetrecordsservice.controller;
 
 import com.paraett.timesheetrecordsservice.model.entities.TimesheetRecord;
 import com.paraett.timesheetrecordsservice.service.TimesheetRecordService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -21,9 +22,11 @@ public class TimesheetRecordController {
     }
 
     @GetMapping("")
-    public ResponseEntity<List<TimesheetRecord>> getAllTimesheetRecords(@RequestParam(required = false) Long companyId, @RequestParam(required = false) Long projectId,
-                                                                @RequestParam(required = false) Long userId,
-                                                                @RequestParam(required = false) Date minDate, @RequestParam(required = false) Date maxDate) {
+    public ResponseEntity<List<TimesheetRecord>> getAllTimesheetRecords(@RequestParam(required = false) Long companyId,
+                                                                        @RequestParam(required = false) Long projectId,
+                                                                        @RequestParam(required = false) Long userId,
+                                                                        @RequestParam(required = false) @DateTimeFormat(pattern = "MM/dd/yyyy") Date minDate,
+                                                                        @RequestParam(required = false) @DateTimeFormat(pattern = "MM/dd/yyyy") Date maxDate) {
         List<TimesheetRecord> timesheetRecords = timesheetRecordService.getAllTimesheetRecords(companyId, projectId, userId, minDate, maxDate);
 
         return ResponseEntity.ok(timesheetRecords);
