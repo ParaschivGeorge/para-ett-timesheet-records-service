@@ -3,6 +3,7 @@ package com.paraett.timesheetrecordsservice.model.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.Date;
 
 @Entity
@@ -29,7 +30,7 @@ public class TimesheetRecord {
     private Date date;
 
     @Column
-    @Positive
+    @PositiveOrZero
     @Max(24)
     private Integer noHours;
 
